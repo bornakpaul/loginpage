@@ -1,15 +1,65 @@
-<p>Register Form</p>
-<form>
-    <div class="input">
-        <label for="Username">Username</label>
-        <input type="text" name="username" [(ngModel)]="username">
-    </div>
+<div class="bg-info text-white" style="height: 100vh;  background-image: url('https://mdbootstrap.com/img/new/fluid/city/018.jpg');">
+    <form [formGroup]="registrationForm">
+     <div class="row" >
+        <div class="col-md-6 offset-md-3 mt-4">
+            <h2>Register</h2>
+            {{registrationForm.value | json}}
+                <div class="form-group" style="height: 80px">
+                    <label for="Username">Username</label>
+                    <input type="text"
+                           class="form-control"
+                           name="username"
+                           formControlName="username">
+                           <!-- [(ngModel)]="username" -->
+                           
+                </div>
+               <div></div>
+                <div class="form-group" style="height: 80px">
+                    <label for="email">Email</label>
+                    <input type="text" class="form-control" 
+                    id="email"
+                    formControlName="email">
+                </div>
+                <div class="form-group" style="height: 60px">
+                    <label for="gender">Gender</label>
+                    <div class="max-auto" style="width: 300px">
+                        <label for="male" class="radio-inline"><input type="radio" name="gender" value="male" id="male" formControlName="gender" style="width: 30px">Male</label>
+                        <label for="female" class="radio-inline"><input type="radio" name="gender" value="female" id="female" formControlName="gender" style="width: 30px">Female</label>
+                        <label for="others" class="radio-inline"><input type="radio" name="gender" value="others" id="others" formControlName="gender" style="width: 30px">Others</label>
+                    </div>
+                </div>
+    
+                <div class="form-group" style="height: 80px">
+                    <label for="phone">Phone</label>
+                    <input type="text" class="form-control" 
+                    formControlName="phone" id="phone">
+                </div>
+                <div class="form-group" style="height: 80px">
+                    <label for="Password">Password</label>
+                    <input type="password"
+                           class="form-control"
+                           formControlName="password"
+                           name="password">
+                           <!-- [(ngModel)]="password" -->
+                           
+                </div>
+    
+                <div class="form-group" style="height: 80px">
+                    <label for="ConfirmPassword">Confirm Password</label>
+                    <input type="password"
+                           class="form-control"
+                           name="confirmPassword"
+                           formControlName="confirmpassword">
+                </div>
+                
+                <button type="submit" style="width: 415px"
+                        class="btn btn-primary" (click)="onSubmit()"> Register <i class="fas fa-sign-in-alt"></i></button>
+        </div>
+     </div>
+    </form>
+    
+</div>
 
-    <div class="input">
-        <label for="Password">Password</label>
-        <input type="text" name="password" [(ngModel)]="password">
-    </div>
-    <div class="input">
-        <input type="button" value="register" (click)="RegisterUser()">
-    </div>
-</form>
+<!-- (click)="RegisterUser()" -->
+
+
