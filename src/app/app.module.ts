@@ -6,12 +6,14 @@ import { AppComponent } from './app.component';
 import { RegistrationComponent } from './registration/registration.component';
 import { LoginComponent } from './login/login.component';
 import { RouterModule } from '@angular/router';
+import { TableComponent } from './table/table.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     RegistrationComponent,
-    LoginComponent
+    LoginComponent,
+    TableComponent
   ],
   imports: [
     BrowserModule, 
@@ -20,6 +22,7 @@ import { RouterModule } from '@angular/router';
     RouterModule.forRoot([
       { path: '', component: LoginComponent },
       { path: 'register', component: RegistrationComponent, pathMatch: 'full',},
+      { path: 'table', component: TableComponent, pathMatch: 'full',},
     ]),
   ],
   providers: [],
