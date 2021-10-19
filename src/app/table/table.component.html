@@ -2,16 +2,66 @@
 
    <div>
     <div class="col-sm-10" style="border: 0px solid gray;">
-        <h2 style="text-align: center;">Users Table</h2>
-        <div class="row">
-          <div class="col-sm-2" style="background-color: #ff914d;padding: 10px 20px;">Record No</div>
+        <h2 style="text-align: center;">{{pageTitle}}</h2>
+        <div class="table-responsive bg-info">
+          <table class='table' *ngIf='local'>
+            <thead>
+              <tr>
+                <th>Record No</th>
+                <th>Username</th>
+                <th>Email</th>
+                <th>Gender</th>
+                <th>Password</th>
+                <th>Actions</th>
+              </tr>
+            </thead>
+            <tbody>
+
+              <tr *ngFor='let user of local;  let i = index'>
+                <td>{{i+1}}</td>
+                <td>{{user.username}}</td>
+                <td>{{user.email}}</td>
+                <td>{{user.gender}}</td>
+                <td>{{user.password}}</td>
+                <td><button class="btn btn-primary btn-sm" style="margin: 0px 10px;">Edit</button><button class="btn btn-danger btn-sm">Delete</button></td>
+              </tr>
+
+            </tbody>
+          </table>
+          
+        </div>
+        <!-- <div id="showUsers"></div> -->
+        <!-- <button type="submit"
+                        class="btn btn-danger col-12" (click)="deleteValue(3)"> Delete <i class="fas fa-sign-in-alt"></i></button> -->
+    </div>
+    <!-- <div class="modal-body">
+        <label class="labs"> Username: </label>
+        <input type="text" name="" id="nameMod"><br>
+
+        <label class="labs"> Email: </label>
+        <input type="text" name="" id="emailMod"><br>
+
+        <label class="labs"> Gender: </label>
+        <input type="text" name="" id="genderMod"><br>
+
+        <label class="labs"> Phone: </label>
+        <input type="text" name="" id="phoneMod"><br>
+
+        <label class="labs"> Password: </label>
+        <input type="text" name="" id="passMod"><br>
+
+        <label class="labs"> Confrim Password: </label>
+        <input type="text" name="" id="cnfrmPassMod"><br>
+
+
+
+
+        <div class="col-sm-2" style="background-color: #ff914d;padding: 10px 20px;">Record No</div>
           <div class="col-sm-2" style="background-color: #ff914d;padding: 10px;">Name</div>
           <div class="col-sm-3" style="background-color: #ff914d;padding: 10px;">Email</div>
           <div class="col-sm-2" style="background-color: #ff914d;padding: 10px;">Password</div>
           <div class="col-sm-3" style="background-color: #ff914d;padding: 10px;">Action</div>
-        </div>
-        <div id="showUsers"></div>
-      </div>
+    </div> -->
    </div>
     
 </div>

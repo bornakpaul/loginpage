@@ -35,9 +35,9 @@ RegisterUser(){
     localStorage.setItem('users','[]');
 }
 
-if(localStorage.getItem('username') == null){
-  localStorage.setItem('username','[]');
-}
+// if(localStorage.getItem('username') == null){
+//   localStorage.setItem('username','[]');
+// }
 
 let old_data = JSON.parse(localStorage.getItem('users')!);
 old_data.push(this.registrationForm.value);
