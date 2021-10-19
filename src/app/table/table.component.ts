@@ -7,6 +7,8 @@ import { Component, OnInit } from '@angular/core';
 })
 export class TableComponent implements OnInit {
 
+  //newlstUsers: any = [];
+
   pageTitle: string = 'User Details';
   local = JSON.parse(localStorage.getItem("users")!);
 
@@ -14,7 +16,8 @@ export class TableComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
-    //this.setValue();
+    //this.newlstUsers = JSON.parse(localStorage.getItem('users')!);
+    this.local;
   }
 
 //  setValue(){
@@ -34,13 +37,18 @@ export class TableComponent implements OnInit {
 // }
 // }
 
-  deleteValue(recordNo: any){
-    let listArr = [];
-    let getLocalStorage = localStorage.getItem("users")!;
-    listArr = JSON.parse(getLocalStorage);
-    listArr.splice(recordNo, 1);
-    localStorage.setItem("users", JSON.stringify(listArr));
-    //this.setValue();
+  // deleteUser(index: any){
+  //   let listArr = [];
+  //   let getLocalStorage = localStorage.getItem("users")!;
+  //   listArr = JSON.parse(getLocalStorage);
+  //   listArr.splice(index, 1);
+  //   localStorage.setItem("users", JSON.stringify(listArr));
+  // }
+
+  deleteUser(index: any){
+    if(index){
+      this.local.splice(index);
+    }
   }
 
 }
