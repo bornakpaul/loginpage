@@ -8,6 +8,8 @@ import { RegistrationComponent } from './registration/registration.component';
 import { LoginComponent } from './login/login.component';
 import { RouterModule } from '@angular/router';
 import { TableComponent } from './table/table.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import {MatDialogModule} from '@angular/material/dialog';
 @NgModule({
   declarations: [
     AppComponent,
@@ -20,11 +22,13 @@ import { TableComponent } from './table/table.component';
     FormsModule,
     ReactiveFormsModule,
     NgbModule,
+    MatDialogModule,
     RouterModule.forRoot([
       { path: '', component: LoginComponent },
       { path: 'register', component: RegistrationComponent, pathMatch: 'full',},
       { path: 'table', component: TableComponent, pathMatch: 'full',},
     ]),
+    BrowserAnimationsModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

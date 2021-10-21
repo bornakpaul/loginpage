@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {NgbModal, ModalDismissReasons} from '@ng-bootstrap/ng-bootstrap';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms'
 import { PopupComponent } from '../popup/popup.component';
+import {MatDialog , MatDialogConfig} from '@angular/material/dialog';
 
 @Component({
   selector: 'pm-table',
@@ -19,7 +20,7 @@ export class TableComponent implements OnInit {
   updateForm!: any;
 
 
-  constructor(private modalService: NgbModal, private fb: FormBuilder) { }
+  constructor(private modalService: NgbModal, private fb: FormBuilder, private dialog:MatDialog) { }
 
   ngOnInit(): void {
     this.local;
@@ -42,17 +43,26 @@ export class TableComponent implements OnInit {
     }
   }
 
-  editItem(userModel: any){
-    const ref = this.modalService.open(PopupComponent);
-    ref.componentInstance.selectedUser = userModel;
+  // editItem(userModel: any){
+  //   const ref = this.modalService.open(PopupComponent);
+  //   ref.componentInstance.selectedUser = userModel;
 
-    ref.result.then((yes)=>{
-      console.log('Clicked Okay');
-    },
-    (cancel)=>{
-      console.log('Canceled');
-    });
+  //   ref.result.then((yes)=>{
+  //     console.log('Clicked Okay');
+  //   },
+  //   (cancel)=>{
+  //     console.log('Canceled');
+  //   });
+  // }
+
+  edit(){
+    const dialogConfig = new MatDialogConfig();
+    dialogConfig.disableClose = true;
+    dialogConfig.autoFocus = true;
+    dialogConfig.width = "60%";
+    this.dialog.open(PopupComponent,dialogConfig,);
   }
+
 
   // open(content: any) {
   //   this.modalService.open(content, {ariaLabelledBy: 'modal-basic-title'}).result.then((result) => {
